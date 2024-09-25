@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Help Scout Blog</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f2f2f2; /* Light gray background */
+            background-color: black; /* White background */
+        }
+
+        .back-button {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background-color: rgb(59, 57, 57);
+            color: white;
+            padding: 10px 15px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 14px;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+
+        .back-button:hover {
+            background-color: #cc0000; /* Darker red on hover */
+        }
+
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            padding: 20px;
+            max-width: 1000px; /* Limit the container width to fit 3 cards per row */
+            margin: 0 auto;
+        }
+
+        .card {
+            width: 300px;
+            height: 300px;
+            background-color: #000; /* Black background */
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            position: relative;
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 10px rgba(255, 0, 0, 0.5); /* Red shadow on hover */
+        }
+
+        .card-image {
+            width: 100%;
+            height: 150px;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        .card-content {
+            padding: 15px;
+        }
+
+        .card-title {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #fff; /* White text */
+        }
+
+        .card-text {
+            font-size: 14px;
+            color: #fff; /* White text */
+            line-height: 1.5;
+        }
+
+        .glow-animation {
+            animation: glow 2s infinite;
+        }
+
+        @keyframes glow {
+            0% {
+                box-shadow: 0 0 10px rgba(255, 0, 0, 0.5); /* Red glow */
+            }
+            50% {
+                box-shadow: 0 0 20px rgba(255, 0, 0, 1);
+            }
+            100% {
+                box-shadow: 0 0 10px rgba(255, 0, 0, 0.5);
+            }
+        }
+
+        footer {
+            text-align: center;
+            padding: 10px;
+            background-color:rgb(59, 57, 57);
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <a href="index.html" class="back-button">← Back to Home</a>
+    
+    <h1 style="text-align: center; padding: 20px; color: Red;"> <b>Rights For Women</b></h1>
+    
+    <div class="container">
+        <div class="card">
+            <div class="card-image" style="background-image: url('https://www.hindustantimes.com/ht-img/img/2024/01/01/550x309/domestic_violence_thumb_1704116593103_1704116609650.jpg')"></div>
+            <div class="card-content">
+                <a href="https://www.ijfcm.org/html-article/13600#:~:text=The%20Indian%20legal%20system%20has,for%20dealing%20with%20domestic%20violence." style="text-decoration: none;"><h2 class="card-title" style="color: #ff0000;">Domestic Violence</h2></a> 
+                <p class="card-text">Section 498A </p>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-image" style="background-image: url('https://cdn0.weddingwire.com/article/7786/3_2/960/jpg/16877-emotional-abuse-fizkes.jpeg')"></div>
+            <div class="card-content">
+                <a href="https://indiankanoon.org/doc/170794703/" style="text-decoration: none;"><h2 class="card-title" style="color: #ff0000;">Psychological Abuse</h2> </a><!-- Red title -->
+                <p class="card-text">Section 86</p>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-image" style="background-image: url('https://talk-law.com/wp-content/uploads/2019/11/shutterstock_1279132906-1170x690.jpg')"></div>
+            <div class="card-content">
+                <a href="https://devgan.in/ipc/section/354/" style="text-decoration:none ;"><h2 class="card-title" style="color: #ff0000;">Sexual Harassment</h2> <!-- Red title --></a>
+                <p class="card-text">Section 354 IPC</p>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-image" style="background-image: url('https://www.shutterstock.com/image-vector/illustration-girl-wearing-apron-looking-260nw-1272005257.jpg')"></div>
+            <div class="card-content">
+                <a href="https://www.lawyersclubindia.com/articles/economic-abuse-of-women-the-silent-villain-16500.asp" style="text-decoration: none;"><h2 class="card-title" style="color: #ff0000;">Economic Abuse</h2> <!-- Red title --></a>
+                <p class="card-text">Section 3 of the PWDV</p>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-image" style="background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRensZWf1yEqh1iApU2CZu64P_1GKU5a6PM2A&s')"></div>
+            <div class="card-content">
+                <a href="https://www.ezylegal.in/blogs/everything-about-extortion-and-section-384-ipc" style="text-decoration: none;"><h2 class="card-title" style="color: #ff0000;">Cyber Blackmailing</h2> <!-- Red title --></a>
+                <p class="card-text">IPC Sections 383 and 384 </p>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-image" style="background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRyGJWqFAjuxTtUTtTVlCZqYBWk402u_nGU1g&s')"></div>
+            <div class="card-content">
+                <a href="https://labour.delhi.gov.in/labour/equal-remuneration-act-1976" style="text-decoration: none;"><h2 class="card-title" style="color: #ff0000;">Workplace Inequality</h2> <!-- Red title --></a>
+                <p class="card-text">The Equal Remuneration Act 1976</p>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Women's Support Resource. All rights reserved.</p>
+    </footer>
+</body>
+
+</html>

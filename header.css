@@ -1,0 +1,90 @@
+/* Basic reset for margin and padding */
+body, ul, li {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+/* General Body Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    color: #000000; /* Black for text */
+    background-color: #F5F5DC; /* Cream for background */
+}
+
+/* Styling the navbar */
+.safety-navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #000000; /* Black for navbar background */
+    padding: 10px 20px;
+    position: relative;
+}
+
+/* Styling the logo */
+.safety-logo a {
+    color: #F5F5DC; /* Cream for logo text */
+    text-decoration: none;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+/* Styling the quotes section */
+.safety-quotes {
+    text-align: center;
+    flex-grow: 1;
+}
+
+.quote-text {
+    font-size: 18px;
+    font-family: 'Poppins', sans-serif;
+    color: #F5F5DC; /* Cream for quote text */
+    font-style: italic;
+    animation: fade 10s infinite; /* Fades between quotes */
+}
+
+/* Keyframes for quote fading effect */
+@keyframes fade {
+    0% { opacity: 0; }
+    10% { opacity: 1; }
+    90% { opacity: 1; }
+    100% { opacity: 0; }
+}
+
+/* Styling the navigation list */
+.safety-nav-list {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    flex: 1;
+}
+
+/* Styling the navigation items */
+.safety-nav-item {
+    margin-left: 30px; /* Space between items */
+}
+
+/* Styling the navigation links */
+.safety-nav-link {
+    color: #F5F5DC; /* Cream for navigation text */
+    text-decoration: none;
+    font-size: 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Adding some padding to the icons */
+.safety-nav-link i {
+    font-size: 24px;
+    margin-bottom: 5px;
+}
+
+/* Adding hover effect */
+.safety-nav-link:hover {
+    color: #ff0000; /* Red on hover */
+}
+
+/* Remove previous search-related styles */
+/* Removed the center-icon, search-toggle, and search-box-container styles */

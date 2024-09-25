@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Complaint Form</title>
+    <style>
+/* General Styles for Dark Theme */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #1e1e1e; /* Dark background */
+    margin: 0;
+    padding: 0;
+    color: #f4f4f4; /* Light gray text */
+}
+
+.container {
+    width: 90%;
+    max-width: 800px;
+    margin: 30px auto;
+    padding: 20px;
+    background-color: #2c2c2c; /* Darker container background */
+    border: 1px solid #dc143c; /* Crimson red border */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+}
+
+h3 {
+    text-align: center;
+    color: #dc143c; /* Crimson red for header */
+    font-size: 24px;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: bold;
+}
+
+/* Complaints List Styles */
+.complaints-list {
+    margin-top: 20px;
+}
+
+.complaint-item {
+    background-color: #333; /* Dark background for complaint items */
+    border: 1px solid #dc143c; /* Crimson red border for items */
+    border-radius: 8px;
+    padding: 15px;
+    margin-bottom: 20px;
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.3); /* Softer shadow */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.complaint-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 14px rgba(0, 0, 0, 0.5); /* Darker shadow on hover */
+}
+
+.complaint-item h4 {
+    font-size: 20px;
+    color: #fff; /* White text for titles */
+    margin: 0 0 10px;
+}
+
+.complaint-item p {
+    margin: 5px 0;
+    font-size: 16px;
+    color: #ccc; /* Light gray text for readability */
+}
+
+.complaint-item p strong {
+    color: #dc143c; /* Crimson red for emphasis */
+    font-weight: 600;
+}
+
+/* Scrollbar Styling for Dark Mode */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #2c2c2c; /* Track same color as container */
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #dc143c; /* Crimson red scrollbar thumb */
+    border-radius: 10px;
+    border: 2px solid #2c2c2c;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    .container {
+        width: 100%;
+        padding: 15px;
+    }
+
+    .complaint-item {
+        padding: 10px;
+    }
+
+    .complaint-item h4 {
+        font-size: 18px;
+    }
+
+    .complaint-item p {
+        font-size: 14px;
+    }
+}
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        
+        <div id="complaintsContainer" class="complaints-list">
+            <h3>List of Complaints</h3>
+            <div id="complaints"></div>
+        </div>
+    </div>
+
+    <script>
+        // Fetch complaints on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            fetchComplaints();
+        });
+
+        function fetchComplaints() {
+            fetch('http://localhost:3000/api/complaints') // Adjust the URL as needed
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.json();
+            })
+            .then(data => {
+                displayComplaints(data.value);
+            })
+            .catch(error => {
+                console.error('There was a problem with the fetch operation:', error);
+            });
+        }
+
+        function displayComplaints(complaints) {
+            const complaintsContainer = document.getElementById('complaints');
+
+            if (complaints.length === 0) {
+                complaintsContainer.innerHTML = '<p>No complaints found.</p>';
+                return;
+            }
+
+            complaints.forEach(complaint => {
+                const complaintElement = document.createElement('div');
+                complaintElement.classList.add('complaint-item');
+
+                // Add each complaint field dynamically
+                complaintElement.innerHTML = `
+                    <h4>Complaint by: ${complaint.fullname}</h4>
+                    <p><strong>Email:</strong> ${complaint.email}</p>
+                    <p><strong>Phone:</strong> ${complaint.phoneNumber}</p>
+                    <p><strong>Accused:</strong> ${complaint.accusedName}</p>
+                    <p><strong>Complaint Type:</strong> ${complaint.complaintType}</p>
+                    <p><strong>Status:</strong> ${complaint.status}</p>
+                    <p><strong>Date:</strong> ${new Date(complaint.createdAt).toLocaleString()}</p>
+                `;
+
+                complaintsContainer.appendChild(complaintElement);
+            });
+        }
+    </script>
+</body>
+</html>
